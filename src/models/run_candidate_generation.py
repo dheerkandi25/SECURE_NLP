@@ -12,7 +12,7 @@ from tqdm import tqdm, trange
 import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, TensorDataset
-from transformers import RobertaTokenizer
+from transformers import AutoTokenizer
 from transformers.optimization import get_linear_schedule_with_warmup
 
 from candidate_generator import (
@@ -60,7 +60,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--model_name_or_path",
-    default="./ckpts/roberta-large",
+    default="roberta-base",
     type=str,
     help="Backbone pre-trained language model",
 )
@@ -674,7 +674,7 @@ def main():
     model.to(device)
     logger.info(f"Model {config_dict['model_type']} loaded.")
 
-    tokenizer = RobertaTokenizer.from_pretrained(config_dict["model_name_or_path"])
+    tokenizer = AutoTokenizer.from_pretrained(config_dict["model_name_or_path"])
 
     if not config_dict["eval"]:
         train_model(training_data, dev_data, test_data, tokenizer, model)
