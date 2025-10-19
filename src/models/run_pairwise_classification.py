@@ -73,7 +73,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--model_name_or_path",
-    default="./ckpts/roberta-large",
+    default="roberta-base",
     type=str,
     help="Backbone pre-trained language model",
 )

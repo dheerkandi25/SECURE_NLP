@@ -10,7 +10,7 @@ default:
   model_type: secure
   summary_tye: elaboration-entityCoref_date
   dataset_type: ecb
-  model_name_or_path: roberta-large
+  model_name_or_path: roberta-base
   train_neighbor_size: 15
   eval_neighbor_size: 5
   train_batch_size: 4
